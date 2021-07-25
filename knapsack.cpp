@@ -1,0 +1,50 @@
+#include<bits/stdc++.h>
+using namespace std;
+main()
+{
+    int n,m,i,j,r,t,p[124],w[124],x[124],a=0,s=0;
+    cin>>m>>n;
+    for(i=0;i<n;i++)
+    {
+        cin>>p[i]>>w[i];
+        x[i]=p[i]/w[i];
+    }
+    for(i=0;i<n-1;i++)
+    {
+        for(j=0;j<n-i-1;j++)
+        {
+            if(x[j]<x[j+1])
+            {
+                t=x[j+1];
+                x[j+1]=x[j];
+                x[j]=t;
+                t=w[j+1];
+                w[j+1]=w[j];
+                w[j]=t;
+                t=p[j+1];
+                p[j+1]=p[j];
+                p[j]=t;
+            }
+        }
+    }
+    /**for(i=0;i<n;i++)
+    {
+        cout<<p[i]<<"\t"<<w[i]<<"\t"<<x[i]<<endl;
+    }**/
+    for(i=0;i<n;i++)
+    {
+        s=s+w[i];
+        if(s<m)
+            a=a+p[i];
+        else
+        {
+            s=s-w[i];
+            r=m-s;
+            a=a+x[i]*r;
+            break;
+        }
+       //cout<<a<<endl;
+    }
+    //cout<<s<<"\t"<<r<<"\t";
+    cout<<a;
+}

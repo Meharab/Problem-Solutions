@@ -1,0 +1,43 @@
+#include<bits/stdc++.h>
+using namespace std;
+main()
+{
+    int a,b,c[100]={1,3,5,7,8,10,12},d[100]={4,6,9,11},e[100]={2},i,j;
+    cin>>a>>b;
+    if(a==b)
+    {
+        cout<<"Yes";
+        exit(0);
+    }
+    for(i=0;i<7;i++)
+    {
+        if(c[i]==a)
+        {
+            for(j=0;j<7;j++)
+            {
+                if(c[j]==b)
+                    {
+                        cout<<"Yes";
+                            exit(0);
+                    }
+            }
+        }
+        break;
+    }
+    for(i=0;i<4;i++)
+    {
+        if(d[i]==a)
+        {
+            for(j=0;j<4;j++)
+            {
+                if(d[j]==b)
+                    {
+                        cout<<"Yes";
+                            exit(0);
+                    }
+            }
+        }
+        break;
+    }
+    cout<<"No"<<endl;
+}
